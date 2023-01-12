@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<December_Project.Dtos.BdgOut>
+@{
+    ViewData["Title"] = "BadgeReport";
+
+}
+<form asp-action="GetReport" asp-controller="Home" method="post">
+
+    <div class="container">
+        <label for="uname"><b>StartDate</b></label>
+        <input type="date" placeholder="Enter FirstName" name="StartDate"  value="@DateTime.Today" min="1/1/1753" max="@DateTime.Today" >
+
+        <label for="psw"><b>EndDate</b></label>
+        <input type="date" placeholder="Enter LastName" name="EndDate" value="@DateTime.Today" min="1/1/1753" max="@DateTime.Today" >
+        <label for="uname"><b>Firstname</b></label>
+        <input type="text" placeholder="Enter FirstName" name="employeefirstname" >
+
+        <label for="psw"><b>LastName</b></label>
+        <input type="text" placeholder="Enter LastName" name="employeelastname" >
+
+        <button type="submit">Search</button>
+    </div>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+             <th>Photo</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Temproary Badge</th>  
+            <th>Assign Time</th>
+            <th>SignIn</th>
+            <th>SignOut</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(@data.PhotoUrl)"></img>
+
+                </td>
+                <td>@data.employeefirstname</td>
+                <td>@data.employeelastname</td>
+                <td>@data.TemporaryBadge</td>
+                
+                <td>@data.SignOut - @data.SignIn</td>
+                <td>@data.SignIn</td>
+                <td>@data.SignOut</td>
+          
+
+            </tr>
+        }
+    </tbody>
+</table>

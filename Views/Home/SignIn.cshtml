@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+    <form asp-action="GetStudent"asp-controller="Home" method="post">
+
+        <div class="container">
+            <label for="uname"><b>Firstname</b></label>
+            <input type="text" placeholder="Enter FirstName" name="employeefirstname" required>
+
+            <label for="psw"><b>LastName</b></label>
+            <input type="text" placeholder="Enter LastName" name="employeelastname" required>
+
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+     @foreach (var employee in Model)
+    {  <tr>
+                        <td>
+                        <img src="~/images/@employee.PhotoUrl" width="50">
+
+                    </td>
+                    <td>@employee.employeefirstname</td>
+                    <td>@employee.employeelastname</td>
+                    
+                    <td>
+                        
+                        
+                        <a href="/Home/AddValue?PhotoUrl=@employee.PhotoUrl" >
+                            <button type="submit" style="background-color:darkgoldenrod" onclick="return" > Send Request </button>
+                            <i class="fa-solid fa-trash"></i>
+
+                        </a>
+            @*        <a href="@Url.Action("Bdgequeue")" class="btn btn-danger delete" onclick="return confirm('Are you sure ')" title="delete">
+                        <i class="fa-solid fa-trash"></i>
+
+                    </a>*@
+
+                     </td>
+
+                    </tr>
+   }
+  
+   </tbody>
+</table>
+     @*   <div class="card mt-8">
+            <div class="col-auto mb-8">
+                <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <img class="card-img-top" src="~/images/@employee.Photo"  asp-append-version = "true" width="20" height="50" > 
+                <h4> @employee.Name</h4> <h4>@employee.LastName  </h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a href="/Home/Privacy/@employee.Id"  asp class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="/Home/Delete/@employee.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        </div>
+        </div>
+    }
+</div>*@
+
+ 
