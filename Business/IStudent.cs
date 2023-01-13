@@ -1,9 +1,9 @@
-﻿using December_Project.Models;
-using OKRProject.Models;
+﻿using EmployeeSystem.Models;
+using EmployeeSystem.Models;
 
-namespace December_Project.Business
+namespace EmployeeSystem.Business
 {
-    public interface IStudentService
+    public interface IStudent
     {
         public IEnumerable<Employee> GetStudents(string employeefirstname, string employeelastname);
         public Employee GetStudent(string PhotoUrl);

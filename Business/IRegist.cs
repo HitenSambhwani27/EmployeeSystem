@@ -1,11 +1,11 @@
-﻿using December_Project.Models;
+﻿using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OKRProject.ViewModels;
+using EmployeeSystem.ViewModels;
 
 namespace OKR.Services
 {
-    public interface IReg
+    public interface IRegist
     {
         public  Task<IdentityResult> Register(User model);
         public Task LoginData(LoginViewModel model);

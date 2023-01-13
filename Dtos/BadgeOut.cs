@@ -1,8 +1,8 @@
 ﻿
-using December_Project.Models;
-namespace December_Project.Dtos
+using EmployeeSystem.Models;
+namespace EmployeeSystem.Dtos
 {
-    public class BdgOut
+    public class BadgeOut
     {
         public string PhotoUrl { get; set; }
         public int e_id { get; set; }

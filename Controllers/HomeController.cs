@@ -1,23 +1,23 @@
-﻿using December_Project.Business;
-using December_Project.Dtos;
-using December_Project.Models;
+﻿using EmployeeSystem.Business;
+using EmployeeSystem.Dtos;
+using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
-using OKRProject.Models;
+using EmployeeSystem.Models;
 using System.Diagnostics;
 
-namespace December_Project.Controllers
+namespace EmployeeSystem.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IStudentService _std;
-        private readonly IGuardService _grd;
+        private readonly IStudent _std;
+        private readonly IGuard _grd;
         private readonly IRegisteredServices reg;
 
-        public HomeController(ILogger<HomeController> logger,IStudentService std, IGuardService grd,UserManager<IdentityUser>userManager)
+        public HomeController(ILogger<HomeController> logger,IStudent std, IGuard grd,UserManager<IdentityUser>userManager)
         {
             _logger = logger;
             _std = std;
@@ -67,7 +67,7 @@ namespace December_Project.Controllers
         [Authorize]
         public IActionResult BadgeReport()
         {
-            return View(BadgeOutP());
+            return View(BadgeQueue());
         }
 
 
@@ -90,8 +90,8 @@ namespace December_Project.Controllers
         public IActionResult AddValue(string PhotoUrl)
         {
            Employee emp= _std.GetStudent(PhotoUrl);
-            
-            Guard guard = new Guard();
+
+            Models.Guard guard = new Models.Guard();
             
             guard.employeefirstname = emp.employeefirstname;
             guard.employeelastname =emp.employeelastname;
@@ -108,7 +108,7 @@ namespace December_Project.Controllers
             return Content(TemporaryBadge);
         }
         [HttpGet]
-        public IEnumerable<Guard> BadgeQueue()
+        public IEnumerable<Models.Guard> BadgeQueue()
         {
             // Employee emp = _std.GetStudent(PhotoUrl);
 
@@ -117,7 +117,7 @@ namespace December_Project.Controllers
         public IActionResult BadgeQueuePage()
         {
             var b = BadgeQueue();
-            return View("Bdgequeue", b);
+            return View("BadgeQueue", b);
         }
         [HttpPost]
         public IActionResult SignOut(int TemporaryBadge)
@@ -133,7 +133,7 @@ namespace December_Project.Controllers
             }
         }
         [HttpGet]
-        public IEnumerable<Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate)
+        public IEnumerable<Models.Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate)
         {
             return _grd.BadgeReportPage(employeefirstname, employeelastname,StartDate,EndDate);
         }
@@ -144,7 +144,7 @@ namespace December_Project.Controllers
             return View("BadgeReport", a);
             }
         [HttpGet]
-        public IEnumerable<BdgOut> BadgeOutP()
+        public IEnumerable<BadgeOut> BadgeOutP()
         {
             return _grd.BadgeOutPag();
         }

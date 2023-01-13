@@ -1,8 +1,8 @@
-//using December_Project.DBContext;
-using December_Project.Business;
-using December_Project.DBContext;
-using December_Project.MiddleWare;
-using December_Project.Repository;
+//using EmployeeSystem.DBContext;
+using EmployeeSystem.Business;
+using EmployeeSystem.DBContext;
+using EmployeeSystem.MiddleWare;
+using EmployeeSystem.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OKR.Services;
@@ -18,11 +18,11 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 });// dbcontext use karna hai
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
-builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-builder.Services.AddScoped<IStudentService, StudentService>();
-builder.Services.AddScoped<IGuardRepository, GuardRepository>();
-builder.Services.AddScoped<IGuardService, GuardService>();
-builder.Services.AddScoped<IReg, Reg>();
+builder.Services.AddScoped<IStudentRep, StudentRep>();
+builder.Services.AddScoped<IStudent, Student>();
+builder.Services.AddScoped<IGuardRep, GuardRep>();
+builder.Services.AddScoped<IGuard, Guard>();
+builder.Services.AddScoped<IRegist, Regist>();
 var app = builder.Build();
 //app.UseMiddleware<ExceptionMiddleware>();
 // Configure the HTTP request pipeline.

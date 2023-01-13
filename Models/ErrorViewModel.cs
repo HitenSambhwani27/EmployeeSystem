@@ -1,4 +1,4 @@
-namespace December_Project.Models
+namespace EmployeeSystem.Models
 {
     public class ErrorViewModel
     {

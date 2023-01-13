@@ -1,9 +1,9 @@
-﻿//using December_Project.Dtos;
-using December_Project.Models;
+﻿//using EmployeeSystem.Dtos;
+using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace December_Project.DBContext
+namespace EmployeeSystem.DBContext
 {
     public class AppDBContext:IdentityDbContext
     {

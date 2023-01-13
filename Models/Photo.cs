@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OKRProject.Models
+namespace EmployeeSystem.Models
 {
     public class Photo
     {

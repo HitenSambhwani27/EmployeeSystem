@@ -1,12 +1,12 @@
-﻿using December_Project.Dtos;
-using December_Project.Models;
+﻿using EmployeeSystem.Dtos;
+using EmployeeSystem.Models;
 
-namespace December_Project.Repository
+namespace EmployeeSystem.Repository
 {
-    public interface IGuardRepository
+    public interface IGuardRep
     {
         public IEnumerable<Guard> BadgeQueuePage();
-        public IEnumerable<BdgOut> BadgeOutPage();
+        public IEnumerable<BadgeOut> BadgeOutPage();
         public IEnumerable<Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate);
         public Guard Addvalue(Guard guard);
         public int temp();

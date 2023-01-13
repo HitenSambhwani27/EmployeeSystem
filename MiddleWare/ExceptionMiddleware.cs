@@ -1,8 +1,8 @@
-﻿using December_Project.Errors;
+﻿using EmployeeSystem.Errors;
 using System.Net;
 using System.Text.Json;
 
-namespace December_Project.MiddleWare
+namespace EmployeeSystem.MiddleWare
 {
     public class ExceptionMiddleware
     {

@@ -1,14 +1,14 @@
-﻿using December_Project.Models;
-using December_Project.Repository;
-using OKRProject.Models;
+﻿using EmployeeSystem.Models;
+using EmployeeSystem.Repository;
+using EmployeeSystem.Models;
 
-namespace December_Project.Business
+namespace EmployeeSystem.Business
 {
-    public class StudentService : IStudentService
+    public class Student : IStudent
     {
-        private readonly IStudentRepository _student;
+        private readonly IStudentRep _student;
 
-        public StudentService(IStudentRepository student)
+        public Student(IStudentRep student)
         {
             _student = student;
         }

@@ -1,23 +1,23 @@
-﻿using December_Project.Dtos;
-using December_Project.Models;
-using December_Project.Repository;
+﻿using EmployeeSystem.Dtos;
+using EmployeeSystem.Models;
+using EmployeeSystem.Repository;
 
-namespace December_Project.Business
+namespace EmployeeSystem.Business
 {
-    public class GuardService : IGuardService
+    public class Guard : IGuard
     {
-        private readonly IGuardRepository _guard;
+        private readonly IGuardRep _guard;
 
-        public  GuardService(IGuardRepository guard)
+        public  Guard(IGuardRep guard)
         {
             _guard = guard;
         }
 
-        public Guard Addvalue(Guard guard)
+        public Models.Guard Addvalue(Models.Guard guard)
         {
             return _guard.Addvalue(guard);
         }
-        public IEnumerable<Guard> BadgeQueue()
+        public IEnumerable<Models.Guard> BadgeQueue()
         {
             
             return _guard.BadgeQueuePage();
@@ -30,15 +30,15 @@ namespace December_Project.Business
         {
             return _guard.SignOut(TemporaryBadge);
         }
-        public IEnumerable<Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate)
+        public IEnumerable<Models.Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate)
         {
             return _guard.BadgeReportPage(employeefirstname, employeelastname, StartDate, EndDate);
         }
-        public IEnumerable<BdgOut> BadgeOutPag()
+        public IEnumerable<BadgeOut> BadgeOutPag()
         {
             return _guard.BadgeOutPage();
         }
-        public Guard GetServerError()
+        public Models.Guard GetServerError()
         {
             return _guard.GetServerError();
         }

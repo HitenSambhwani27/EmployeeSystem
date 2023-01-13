@@ -1,17 +1,17 @@
-﻿using December_Project.DBContext;
-using December_Project.Models;
+﻿using EmployeeSystem.DBContext;
+using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OKRProject.ViewModels;
+using EmployeeSystem.ViewModels;
 
 namespace OKR.Services
 {
-    public class Reg : IReg
+    public class Regist : IRegist
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly AppDBContext appDB;
-        public Reg(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public Regist(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;

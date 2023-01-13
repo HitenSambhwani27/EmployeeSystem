@@ -1,9 +1,9 @@
-﻿using December_Project.Models;
-using OKRProject.Models;
+﻿using EmployeeSystem.Models;
+using EmployeeSystem.Models;
 
-namespace December_Project.Repository
+namespace EmployeeSystem.Repository
 {
-    public interface IStudentRepository
+    public interface IStudentRep
     {
         public IEnumerable<Employee> GetStudent(string employeefirstname,string employeelastname);
         public Employee GetStudent(string PhotoUrl);

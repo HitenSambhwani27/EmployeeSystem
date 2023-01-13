@@ -1,23 +1,23 @@
-﻿using December_Project.DBContext;
-using December_Project.Dtos;
-using December_Project.Models;
+﻿using EmployeeSystem.DBContext;
+using EmployeeSystem.Dtos;
+using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace December_Project.Repository
+namespace EmployeeSystem.Repository
 {
-    public class GuardRepository : IGuardRepository
+    public class GuardRep : IGuardRep
     {
         private readonly AppDBContext _con;
 
-        public GuardRepository(AppDBContext con)
+        public GuardRep(AppDBContext con)
         {
             _con = con;
         }
-        public IEnumerable<BdgOut> BadgeOutPage()
+        public IEnumerable<BadgeOut> BadgeOutPage()
         {
             var q = (from gd in _con.Guard
                      join ep in _con.Employee on gd.e_id equals ep.e_id
-                     select new BdgOut
+                     select new BadgeOut
                      {
                          employeefirstname = gd.employeefirstname,
                          employeelastname = gd.employeelastname,
@@ -40,25 +40,33 @@ namespace December_Project.Repository
 
         public IEnumerable<Guard> BadgeReportPage(string employeefirstname, string employeelastname, DateTime StartDate, DateTime EndDate)
         {
-            IQueryable<Guard> query = _con.Guard.Where(x => x.employeefirstname != null);
-            if(!string.IsNullOrEmpty(employeefirstname))
+            DateTime myDate = DateTime.ParseExact("01-01-0001 00:00:00", "dd-MM-yyyy HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture);
+            IQueryable<Guard> a = _con.Guard.Where(e => e.employeefirstname != null);
+            if (!string.IsNullOrEmpty(employeefirstname))
             {
-                query = query.Where(e => e.employeefirstname.Contains(employeefirstname));
+                a = a.Where(e => e.employeefirstname.Contains(employeefirstname));
             }
+
             if (!string.IsNullOrEmpty(employeelastname))
             {
-                query = query.Where(e => e.employeelastname.Contains(employeelastname));
+                a = a.Where(e => e.employeelastname.Contains(employeelastname));
             }
-            //if (!(Sign==DateTime.MinValue))
-            //{
-            //    query = query.Where(e => e.SignIn >= SignOut);
-            //}
-            //if (!(EndDate == DateTime.MinValue))
-            //{
-            //    return _con.Guard.Where(e => e.SignOut == EndDate);
-            //}
+            if (EndDate != myDate && StartDate == myDate)
+            {
+                a = a.Where(e => e.SignIn <= EndDate);
+            }
+            if (StartDate != myDate && EndDate == myDate)
+            {
+                a = a.Where(e => e.SignIn >= StartDate);
+            }
+            if (StartDate != myDate && EndDate != myDate)
+            {
+                a = a.Where(e => e.SignIn >= StartDate && e.SignIn <= EndDate);
+            }
 
-          return query; 
+            return a.ToList();
+
         }
 
         public IEnumerable<Guard> BadgeQueuePage()

@@ -1,16 +1,16 @@
-﻿using December_Project.Models;
+﻿using EmployeeSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 using OKR.Services;
-using OKRProject.ViewModels;
+using EmployeeSystem.ViewModels;
 
-namespace December_Project.Controllers
+namespace EmployeeSystem.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IReg reg;
-        public AccountController(IReg reg)
+        private readonly IRegist reg;
+        public AccountController(IRegist reg)
         {
             this.reg = reg;
         }

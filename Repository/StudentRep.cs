@@ -1,16 +1,16 @@
-﻿using December_Project.DBContext;
-using December_Project.Models;
+﻿using EmployeeSystem.DBContext;
+using EmployeeSystem.Models;
 using Microsoft.EntityFrameworkCore;
-using OKRProject.Models;
+using EmployeeSystem.Models;
 
-namespace December_Project.Repository
+namespace EmployeeSystem.Repository
 {
-    public class StudentRepository : IStudentRepository
+    public class StudentRep : IStudentRep
     {
         private readonly AppDBContext DB ;
         private IWebHostEnvironment environment;
 
-        public StudentRepository(AppDBContext DB , IWebHostEnvironment environment)
+        public StudentRep(AppDBContext DB , IWebHostEnvironment environment)
         {
             this.DB = DB;
             this.environment = environment;

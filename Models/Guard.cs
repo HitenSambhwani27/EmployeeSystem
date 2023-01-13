@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace December_Project.Models
+namespace EmployeeSystem.Models
 {
     public class Guard
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OKRProject.ViewModels
+namespace EmployeeSystem.ViewModels
 {
     public class LoginViewModel
     {

@@ -1,4 +1,4 @@
-﻿namespace December_Project.Errors
+﻿namespace EmployeeSystem.Errors
 {
     public class ApiException
     { 
