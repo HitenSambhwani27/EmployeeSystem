@@ -101,7 +101,7 @@ namespace EmployeeSystem.Controllers
         
 
             _grd.Addvalue(guard);
-            return View("Bdgequeue", BadgeOutP());
+            return View("BadgeQueue", BadgeOutP());
         }
         public IActionResult GetTemp(string TemporaryBadge)
         {
